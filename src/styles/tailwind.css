@@ -34,3 +34,9 @@
   --text-9xl: 8rem;
   --text-9xl--line-height: 1;
 }
+
+/* Always reserve space for the vertical scrollbar so page margins don't
+   shift when navigating between pages of different heights. */
+html {
+  scrollbar-gutter: stable;
+}
