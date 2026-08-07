@@ -31,14 +31,9 @@ export default function Home() {
           </h1>
           <div className="mt-6 space-y-7 text-justify text-base text-zinc-600 lg:text-left dark:text-zinc-400">
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-              nec odio praesent libero sed cursus ante dapibus diam. Sed nisi
-              nulla quis sem at nibh elementum imperdiet duis sagittis ipsum.
-            </p>
-            <p>
-              Praesent mauris fusce nec tellus sed augue semper porta mauris
-              massa vestibulum lacinia arcu eget nulla class aptent taciti
-              sociosqu ad litora torquent per conubia nostra.
+              Dantų gydytoja, turinti didžiulį susidomėjimą profilaktika,
+              visuomeniniu dantų sveikatos švietimu bei dantų
+              sveikatos statistikos gerinimu Lietuvoje, ypač vaikų odontologijoje.
             </p>
           </div>
           <div className="mt-10">

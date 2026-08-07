@@ -13,7 +13,7 @@ export function Footer() {
             saugomos.
           </p>
           <div className="flex gap-4">
-            <Link href="mailto:r.vaskelaite@gmail.com" aria-label="El. paštas">
+            <Link href="mailto:demonedantiste@gmail.com" aria-label="El. paštas">
               <MailIcon className="h-6 w-6 fill-zinc-500 transition hover:fill-teal-500" />
             </Link>
             <Link

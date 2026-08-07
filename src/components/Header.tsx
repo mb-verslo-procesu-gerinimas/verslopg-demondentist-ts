@@ -21,6 +21,8 @@ function HomeIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
 }
 
 const navigation = [
+  { name: 'Apie mane', href: '/apie-mane' },
+  { name: 'Mano veikla', href: '/mano-veikla' },
   { name: 'Straipsniai', href: '/articles' },
   { name: 'Reels', href: '/reels' },
   { name: 'Kontaktai', href: '/contact' },

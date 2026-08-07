@@ -56,3 +56,41 @@ export async function getPostBySlug(slug: string): Promise<Post | null> {
     return null
   }
 }
+
+export type Veikla = {
+  _id: string
+  title: string
+  description?: string
+  icon?: Image
+  link?: string
+  order: number
+}
+
+export type AboutMeContent = {
+  _id: string
+  body?: PortableTextBlock[]
+}
+
+const veiklaQuery = groq`*[_type == "veikla"] | order(order asc, _createdAt asc){
+  _id, title, description, icon, link, order
+}`
+
+const aboutMeContentQuery = groq`*[_type == "aboutMe"] | order(_updatedAt desc)[0]{
+  _id, body
+}`
+
+export async function getAllVeikla(): Promise<Veikla[]> {
+  try {
+    return await client.fetch(veiklaQuery)
+  } catch {
+    return []
+  }
+}
+
+export async function getAboutMeContent(): Promise<AboutMeContent | null> {
+  try {
+    return await client.fetch(aboutMeContentQuery)
+  } catch {
+    return null
+  }
+}

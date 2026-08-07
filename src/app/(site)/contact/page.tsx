@@ -4,7 +4,8 @@ import Link from 'next/link'
 import clsx from 'clsx'
 
 import { Container } from '@/components/Container'
-import avatarImage from '@/images/raminta_avatar.jpg'
+import { Newsletter } from '@/components/Newsletter'
+import portraitImage from '@/images/raminta_portrait.jpg'
 import { FacebookIcon, InstagramIcon, MailIcon } from '@/components/SocialIcons'
 
 function SocialLink({
@@ -42,40 +43,51 @@ export const metadata: Metadata = {
 export default function Contact() {
   return (
     <Container className="mt-16 sm:mt-32">
-      <div className="px-4 sm:px-0">
-        <div className="flex items-center gap-4">
-          <Image
-            src={avatarImage}
-            alt=""
-            className="h-12 w-12 flex-none rounded-full object-cover ring-1 ring-zinc-200 dark:ring-zinc-700/40"
-          />
-          <p className="w-fit max-w-2xl rounded-2xl bg-white px-4 py-3 text-base text-zinc-600 dark:bg-zinc-900 dark:text-zinc-400">
-            Čia rasite mano socialinių tinklų paskyras, taip pat galite susisiekti
-            su manimi el. paštu.
-          </p>
+      <div className="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:gap-y-12">
+        <div className="px-4 sm:px-0">
+          <h1 className="text-center text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl lg:text-left dark:text-zinc-100">
+            Kontaktai
+          </h1>
+          <ul role="list" className="mt-8 sm:mt-12">
+            <SocialLink
+              href="https://www.instagram.com/demone.dantiste"
+              icon={InstagramIcon}
+            >
+              demone.dantiste
+            </SocialLink>
+            <SocialLink
+              href="https://www.facebook.com/demonedantiste/"
+              icon={FacebookIcon}
+              className="mt-4"
+            >
+              demonedantiste
+            </SocialLink>
+            <SocialLink
+              href="mailto:demonedantiste@gmail.com"
+              icon={MailIcon}
+              className="mt-4"
+            >
+              demonedantiste@gmail.com
+            </SocialLink>
+          </ul>
+          <div className="mt-10">
+            <Newsletter />
+          </div>
         </div>
-        <ul role="list" className="mt-16 sm:mt-20">
-          <SocialLink
-            href="https://www.instagram.com/demone.dantiste"
-            icon={InstagramIcon}
-          >
-            demone.dantiste
-          </SocialLink>
-          <SocialLink
-            href="https://www.facebook.com/demonedantiste/"
-            icon={FacebookIcon}
-            className="mt-4"
-          >
-            demonedantiste
-          </SocialLink>
-          <SocialLink
-            href="mailto:r.vaskelaite@gmail.com"
-            icon={MailIcon}
-            className="mt-4"
-          >
-            r.vaskelaite@gmail.com
-          </SocialLink>
-        </ul>
+        <div className="lg:pl-20">
+          <div className="mx-auto max-w-xs px-2.5 lg:mx-0 lg:max-w-none">
+            <div className="relative aspect-square rotate-3 overflow-hidden rounded-2xl bg-zinc-100 ring-1 ring-zinc-200 dark:bg-zinc-800 dark:ring-zinc-700/40">
+              <Image
+                src={portraitImage}
+                alt="Demonė Dantistė"
+                sizes="(min-width: 1024px) 32rem, 20rem"
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
+          </div>
+        </div>
       </div>
     </Container>
   )
