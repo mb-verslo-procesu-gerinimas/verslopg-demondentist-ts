@@ -66,7 +66,7 @@ export function Header() {
             </ul>
           </nav>
           <div className="flex items-center gap-2">
-            <ThemeToggle />
+            <ThemeToggle className="hidden md:flex" />
             <button
               type="button"
               aria-label="Atidaryti meniu"
@@ -117,6 +117,11 @@ export function Header() {
                   </Link>
                 </li>
               ))}
+              <li className="mt-2 border-t border-zinc-100 pt-3 dark:border-zinc-700/40">
+                <div className="px-3">
+                  <ThemeToggle className="h-9 w-9" />
+                </div>
+              </li>
             </ul>
           </nav>
         )}
