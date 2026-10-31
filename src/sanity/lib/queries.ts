@@ -60,10 +60,12 @@ export async function getPostBySlug(slug: string): Promise<Post | null> {
 export type Veikla = {
   _id: string
   title: string
+  slug: string
   description?: string
-  icon?: Image
+  mainImage?: Image
+  publishedAt: string
+  body?: PortableTextBlock[]
   link?: string
-  order: number
 }
 
 export type AboutMeContent = {
@@ -74,8 +76,15 @@ export type AboutMeContent = {
   image?: Image
 }
 
-const veiklaQuery = groq`*[_type == "veikla"] | order(order asc, _createdAt asc){
-  _id, title, description, icon, link, order
+// Items created before subpages existed have no slug, so they use their _id in the URL.
+const veiklaQuery = groq`*[_type == "veikla"] | order(coalesce(publishedAt, _createdAt) desc){
+  _id, title, "slug": coalesce(slug.current, _id), description,
+  "mainImage": icon, "publishedAt": coalesce(publishedAt, _createdAt)
+}`
+
+const veiklaBySlugQuery = groq`*[_type == "veikla" && (slug.current == $slug || _id == $slug)][0]{
+  _id, title, "slug": coalesce(slug.current, _id), description,
+  "mainImage": icon, "publishedAt": coalesce(publishedAt, _createdAt), body, link
 }`
 
 // The pre-singleton document has a random _id, so match on type: it keeps
@@ -89,6 +98,14 @@ export async function getAllVeikla(): Promise<Veikla[]> {
     return await client.fetch(veiklaQuery)
   } catch {
     return []
+  }
+}
+
+export async function getVeiklaBySlug(slug: string): Promise<Veikla | null> {
+  try {
+    return await client.fetch(veiklaBySlugQuery, { slug })
+  } catch {
+    return null
   }
 }
 

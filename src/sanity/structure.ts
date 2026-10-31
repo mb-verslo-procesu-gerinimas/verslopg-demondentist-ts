@@ -12,6 +12,7 @@ export const singletonTypes = [
 const listTitles: Record<string, string> = {
   post: 'Straipsniai',
   reel: 'Reels',
+  veikla: 'Veiklos',
 }
 
 export const structure: StructureResolver = (S) =>

@@ -1,4 +1,4 @@
-import { defineField, defineType } from 'sanity'
+import { defineArrayMember, defineField, defineType } from 'sanity'
 
 export const veiklaType = defineType({
   name: 'veikla',
@@ -12,27 +12,44 @@ export const veiklaType = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: 'slug',
+      title: 'Nuoroda (slug)',
+      type: 'slug',
+      options: { source: 'title', maxLength: 96 },
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
       name: 'description',
-      title: 'Aprašymas',
+      title: 'Trumpas aprašymas',
+      description: 'Rodomas kortelėje veiklų sąraše.',
       type: 'text',
       rows: 4,
     }),
     defineField({
+      name: 'publishedAt',
+      title: 'Data',
+      type: 'datetime',
+      initialValue: () => new Date().toISOString(),
+    }),
+    // Stored as "icon" so images uploaded before subpages existed carry over.
+    defineField({
       name: 'icon',
-      title: 'Paveikslėlis / ikonėlė',
+      title: 'Nuotrauka',
+      description: 'Rodoma kortelėje ir veiklos puslapyje.',
       type: 'image',
       options: { hotspot: true },
     }),
     defineField({
-      name: 'link',
-      title: 'Nuoroda (neprivaloma)',
-      type: 'url',
+      name: 'body',
+      title: 'Turinys',
+      description: 'Jei tuščia, puslapyje rodomas trumpas aprašymas.',
+      type: 'array',
+      of: [defineArrayMember({ type: 'block' })],
     }),
     defineField({
-      name: 'order',
-      title: 'Rikiavimo tvarka',
-      type: 'number',
-      initialValue: 0,
+      name: 'link',
+      title: 'Nuoroda puslapio pabaigoje (neprivaloma)',
+      type: 'url',
     }),
   ],
   preview: {
