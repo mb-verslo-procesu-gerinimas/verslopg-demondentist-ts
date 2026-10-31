@@ -8,16 +8,16 @@ export async function Footer() {
   const contact = await getContactPage()
 
   return (
-    <footer className="border-t border-zinc-200 bg-white dark:border-zinc-700/40 dark:bg-zinc-900">
+    <footer className="border-t border-bar-line bg-bar">
       <Container>
         <div className="flex flex-col items-center justify-between gap-6 py-10 sm:flex-row">
-          <p className="text-sm text-zinc-400 dark:text-zinc-500">
+          <p className="text-sm text-on-bar">
             &copy; {new Date().getFullYear()} Demonė Dantistė. Visos teisės
             saugomos.
           </p>
           <div className="flex gap-4">
             <Link href={`mailto:${contact.email}`} aria-label="El. paštas">
-              <MailIcon className="h-6 w-6 fill-zinc-500 transition hover:fill-accent-500" />
+              <MailIcon className="h-6 w-6 fill-on-bar transition hover:fill-bar-accent" />
             </Link>
             <Link
               href={contact.instagramUrl}
@@ -25,7 +25,7 @@ export async function Footer() {
               rel="noreferrer"
               aria-label="Instagram"
             >
-              <InstagramIcon className="h-6 w-6 fill-zinc-500 transition hover:fill-accent-500" />
+              <InstagramIcon className="h-6 w-6 fill-on-bar transition hover:fill-bar-accent" />
             </Link>
             <Link
               href={contact.facebookUrl}
@@ -33,7 +33,7 @@ export async function Footer() {
               rel="noreferrer"
               aria-label="Facebook"
             >
-              <FacebookIcon className="h-6 w-6 fill-zinc-500 transition hover:fill-accent-500" />
+              <FacebookIcon className="h-6 w-6 fill-on-bar transition hover:fill-bar-accent" />
             </Link>
           </div>
         </div>

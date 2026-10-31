@@ -6,7 +6,6 @@ import { usePathname } from 'next/navigation'
 import clsx from 'clsx'
 
 import { Container } from '@/components/Container'
-import { ThemeToggle } from '@/components/ThemeToggle'
 
 function HomeIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
@@ -38,25 +37,25 @@ export function Header() {
   }, [pathname])
 
   return (
-    <header className="border-b border-zinc-100 bg-white/80 backdrop-blur dark:border-zinc-700/40 dark:bg-zinc-900/80">
+    <header className="border-b border-bar-line bg-bar">
       <Container>
         <div className="flex h-16 items-center justify-between px-2 sm:px-0">
           <Link
             href="/"
             aria-label="Pradžia"
-            className="flex text-zinc-600 transition hover:text-accent-500 dark:text-zinc-200"
+            className="flex text-on-bar transition hover:text-bar-accent"
           >
             <HomeIcon className="h-6 w-6 stroke-current" />
           </Link>
           <nav className="hidden justify-center md:flex">
-            <ul className="flex gap-6 text-sm font-medium text-zinc-600 dark:text-zinc-200">
+            <ul className="flex gap-6 text-sm font-medium text-on-bar">
               {navigation.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
                     className={clsx(
-                      'transition hover:text-accent-500',
-                      pathname === item.href && 'text-accent-500',
+                      'transition hover:text-bar-accent',
+                      pathname === item.href && 'text-bar-accent',
                     )}
                   >
                     {item.name}
@@ -66,14 +65,13 @@ export function Header() {
             </ul>
           </nav>
           <div className="flex items-center gap-2">
-            <ThemeToggle className="hidden md:flex" />
             <button
               type="button"
               aria-label="Atidaryti meniu"
               aria-controls="mobile-navigation"
               aria-expanded={isMenuOpen}
               onClick={() => setIsMenuOpen((open) => !open)}
-              className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-zinc-200 text-zinc-600 transition hover:border-zinc-300 hover:text-accent-500 md:hidden dark:border-zinc-700/40 dark:text-zinc-200 dark:hover:border-zinc-600"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-bar-line text-on-bar transition hover:border-bar-line hover:text-bar-accent md:hidden"
             >
               <svg
                 viewBox="0 0 24 24"
@@ -101,7 +99,7 @@ export function Header() {
         {isMenuOpen && (
           <nav
             id="mobile-navigation"
-            className="border-t border-zinc-100 py-2 md:hidden dark:border-zinc-700/40"
+            className="border-t border-bar-line py-2 md:hidden"
           >
             <ul className="flex flex-col gap-1">
               {navigation.map((item) => (
@@ -109,19 +107,14 @@ export function Header() {
                   <Link
                     href={item.href}
                     className={clsx(
-                      'block rounded-lg px-3 py-2 text-sm font-medium text-zinc-700 transition hover:bg-zinc-100 hover:text-accent-500 dark:text-zinc-200 dark:hover:bg-zinc-800/70',
-                      pathname === item.href && 'bg-zinc-100 text-accent-500 dark:bg-zinc-800/70',
+                      'block rounded-lg px-3 py-2 text-sm font-medium text-on-bar transition hover:bg-on-bar/10 hover:text-bar-accent',
+                      pathname === item.href && 'bg-on-bar/10 text-bar-accent',
                     )}
                   >
                     {item.name}
                   </Link>
                 </li>
               ))}
-              <li className="mt-2 border-t border-zinc-100 pt-3 dark:border-zinc-700/40">
-                <div className="px-3">
-                  <ThemeToggle className="h-9 w-9" />
-                </div>
-              </li>
             </ul>
           </nav>
         )}

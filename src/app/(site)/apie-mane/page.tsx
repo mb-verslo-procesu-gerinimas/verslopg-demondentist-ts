@@ -46,20 +46,20 @@ export default async function AboutMe() {
             height={imageHeight}
             alt="Raminta"
             sizes="(min-width: 1024px) 32rem, 20rem"
-            className="w-full rounded-xl object-cover ring-1 ring-zinc-200 dark:ring-zinc-700/40"
+            className="w-full rounded-xl object-cover ring-1 ring-line"
           />
         </div>
         <div className="px-4 lg:px-0">
-          <h1 className="text-center text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl lg:text-left dark:text-zinc-100">
+          <h1 className="text-center text-4xl font-bold tracking-tight text-heading sm:text-5xl lg:text-left">
             {aboutMeContent?.title ?? 'Apie mane'}
           </h1>
-          <p className="mt-4 text-center text-base font-medium text-accent-500 lg:text-left">
+          <p className="mt-4 text-center text-base font-medium text-accent lg:text-left">
             {aboutMeContent?.role ?? 'Bendrosios praktikos gydytoja odontologė'}
           </p>
-          <p className="text-center text-sm text-zinc-500 lg:text-left dark:text-zinc-400">
+          <p className="text-center text-sm text-muted lg:text-left">
             {aboutMeContent?.license ?? 'Licencijos Nr. OPL-04229'}
           </p>
-          <div className="mt-6 space-y-7 text-justify text-base text-zinc-600 lg:text-left dark:text-zinc-400">
+          <div className="mt-6 space-y-7 text-justify text-base text-body lg:text-left">
             {aboutMeContent?.body && aboutMeContent.body.length > 0 && (
               <PortableText
                 value={aboutMeContent.body}

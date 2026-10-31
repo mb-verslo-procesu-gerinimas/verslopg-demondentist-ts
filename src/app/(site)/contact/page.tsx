@@ -28,9 +28,9 @@ function SocialLink({
         href={href}
         target="_blank"
         rel="noreferrer"
-        className="group flex text-sm font-medium text-zinc-800 transition hover:text-accent-500 dark:text-zinc-200"
+        className="group flex text-sm font-medium text-heading transition hover:text-accent"
       >
-        <Icon className="h-6 w-6 flex-none fill-zinc-500 transition group-hover:fill-accent-500" />
+        <Icon className="h-6 w-6 flex-none fill-muted transition group-hover:fill-accent" />
         <span className="ml-4">{children}</span>
       </Link>
     </li>
@@ -50,7 +50,7 @@ export default async function Contact() {
     <Container className="mt-16 sm:mt-32">
       <div className="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:gap-y-12">
         <div className="order-2 px-4 sm:px-0 lg:order-1">
-          <h1 className="text-center text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl lg:text-left dark:text-zinc-100">
+          <h1 className="text-center text-4xl font-bold tracking-tight text-heading sm:text-5xl lg:text-left">
             {contact.title}
           </h1>
           <ul role="list" className="mt-8 sm:mt-12">
@@ -78,7 +78,7 @@ export default async function Contact() {
         </div>
         <div className="order-1 lg:order-2 lg:pl-20">
           <div className="mx-auto max-w-xs px-2.5 lg:mx-0 lg:max-w-none">
-            <div className="relative aspect-square rotate-0 overflow-hidden rounded-2xl bg-zinc-100 ring-1 ring-zinc-200 dark:bg-zinc-800 dark:ring-zinc-700/40">
+            <div className="relative aspect-square rotate-0 overflow-hidden rounded-2xl bg-subtle ring-1 ring-line">
               <Parallax speed={0.2} className="absolute inset-x-0 -inset-y-12">
                 <Image
                   src={

@@ -8,27 +8,31 @@ export const siteSettingsType = defineType({
   __experimental_formPreviewTitle: false,
   fields: [
     defineField({
-      name: 'accent',
+      name: 'palette',
       title: 'Spalvų paletė',
       description:
-        'Nuorodų, paryškinimų ir mygtukų spalva. Nauja spalva svetainėje pasirodo per minutę po paskelbimo.',
+        'Keičia fono, viršutinės ir apatinės juostos, teksto ir nuorodų spalvas visoje svetainėje. Nauja paletė pasirodo per minutę po paskelbimo.',
       type: 'string',
-      // Each value needs a matching [data-accent] block in tailwind.css.
+      // Each value other than "default" needs a [data-palette] block in tailwind.css.
       options: {
         list: [
-          { title: 'Žalsvai mėlyna', value: 'teal' },
-          { title: 'Rožinė', value: 'rose' },
-          { title: 'Mėlyna', value: 'blue' },
-          { title: 'Violetinė', value: 'violet' },
+          { title: 'Numatytoji', value: 'default' },
+          { title: 'Cappuccino', value: 'cappuccino' },
+          { title: 'Beach', value: 'beach' },
+          { title: 'Beautiful Blues', value: 'blues' },
+          { title: 'Skin Tones', value: 'skin' },
+          { title: 'Sage Green', value: 'sage' },
+          { title: 'Soft Pastel', value: 'pastel' },
+          { title: 'Matcha Latte', value: 'matcha' },
         ],
         layout: 'radio',
       },
-      initialValue: 'teal',
+      initialValue: 'default',
       validation: (rule) => rule.required(),
     }),
   ],
   preview: {
-    select: { title: 'accent' },
+    select: { title: 'palette' },
     prepare: () => ({ title: 'Svetainės išvaizda' }),
   },
 })

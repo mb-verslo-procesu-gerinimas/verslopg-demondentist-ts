@@ -22,7 +22,7 @@ export default async function Home() {
       <div className="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:gap-y-12">
         <div className="lg:pl-20">
           <div className="mx-auto max-w-xs px-2.5 lg:mx-0 lg:max-w-none">
-            <div className="relative aspect-square rotate-3 overflow-hidden rounded-2xl bg-zinc-100 ring-1 ring-zinc-200 dark:bg-zinc-800 dark:ring-zinc-700/40">
+            <div className="relative aspect-square rotate-3 overflow-hidden rounded-2xl bg-subtle ring-1 ring-line">
               <Parallax speed={0.2} className="absolute inset-x-0 -inset-y-12">
                 <Image
                   src={
@@ -41,10 +41,10 @@ export default async function Home() {
           </div>
         </div>
         <div className="px-4 lg:order-first lg:px-0">
-          <h1 className="text-center text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl lg:text-left dark:text-zinc-100">
+          <h1 className="text-center text-4xl font-bold tracking-tight text-heading sm:text-5xl lg:text-left">
             {homePage?.title ?? 'Demonė Dantistė'}
           </h1>
-          <div className="mt-6 space-y-7 text-justify text-base text-zinc-600 lg:text-left dark:text-zinc-400">
+          <div className="mt-6 space-y-7 text-justify text-base text-body lg:text-left">
             {homePage?.body && homePage.body.length > 0 ? (
               <PortableText
                 value={homePage.body}

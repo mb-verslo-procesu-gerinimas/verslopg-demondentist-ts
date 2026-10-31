@@ -27,7 +27,7 @@ export default async function ArticlesIndex() {
         <PageIntro field="articlesIntro" />
         <div className="mt-16 sm:mt-20">
           {posts.length === 0 ? (
-            <p className="text-base text-zinc-600 dark:text-zinc-400">
+            <p className="text-base text-body">
               Straipsnių dar nėra. Užsukite vėliau!
             </p>
           ) : (
@@ -35,11 +35,11 @@ export default async function ArticlesIndex() {
                 {posts.map((post) => (
                   <article
                     key={post._id}
-                    className="rounded-2xl border border-zinc-200 bg-white p-6 transition hover:border-zinc-300 hover:bg-zinc-50 hover:shadow-sm dark:border-zinc-700/40 dark:bg-zinc-900/60 dark:hover:border-zinc-600 dark:hover:bg-zinc-800/60"
+                    className="rounded-2xl border border-line bg-surface p-6 transition hover:border-line hover:bg-subtle hover:shadow-sm"
                   >
                     <Link href={`/articles/${post.slug}`} className="group block">
                       {post.mainImage && (
-                        <div className="relative mb-4 aspect-video w-full overflow-hidden rounded-xl bg-zinc-100 ring-1 ring-zinc-200 dark:bg-zinc-800 dark:ring-zinc-700/40">
+                        <div className="relative mb-4 aspect-video w-full overflow-hidden rounded-xl bg-subtle ring-1 ring-line">
                           <Image
                             src={urlFor(post.mainImage)
                               .width(800)
@@ -67,7 +67,7 @@ export default async function ArticlesIndex() {
                         {post.excerpt && (
                           <Card.Description>{post.excerpt}</Card.Description>
                         )}
-                        <p className="mt-4 text-sm font-medium text-accent-500 transition group-hover:text-accent-600">
+                        <p className="mt-4 text-sm font-medium text-accent transition group-hover:text-accent-strong">
                           Skaityti straipsnį
                         </p>
                       </Card>

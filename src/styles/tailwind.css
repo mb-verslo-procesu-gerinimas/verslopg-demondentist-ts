@@ -2,8 +2,6 @@
 
 @plugin '@tailwindcss/typography';
 
-@custom-variant dark (&:where(.dark, .dark *));
-
 @theme {
   --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
 
@@ -34,33 +32,168 @@
   --text-9xl: 8rem;
   --text-9xl--line-height: 1;
 
-  --color-accent-300: var(--color-teal-300);
-  --color-accent-400: var(--color-teal-400);
-  --color-accent-500: var(--color-teal-500);
-  --color-accent-600: var(--color-teal-600);
+  --color-page: #fafafa;
+  --color-surface: #ffffff;
+  --color-subtle: #f4f4f5;
+  --color-line: #e4e4e7;
+  --color-heading: #27272a;
+  --color-body: #52525c;
+  --color-muted: #71717b;
+  --color-accent: #00baa7;
+  --color-accent-strong: #009588;
+  --color-on-accent: #ffffff;
+  --color-bar: #ffffff;
+  --color-bar-line: #e4e4e7;
+  --color-on-bar: #52525c;
+  --color-bar-accent: #00baa7;
 }
 
-/* Palette presets, chosen in Studio ("Svetainės išvaizda"). Teal is the default
-   above; the values here must match the list in schemaTypes/siteSettings.ts. */
-[data-accent='rose'] {
-  --color-accent-300: var(--color-rose-300);
-  --color-accent-400: var(--color-rose-400);
-  --color-accent-500: var(--color-rose-500);
-  --color-accent-600: var(--color-rose-600);
+/* Prose reads the same roles, so article text follows the palette. */
+.prose {
+  --tw-prose-body: var(--color-body);
+  --tw-prose-headings: var(--color-heading);
+  --tw-prose-lead: var(--color-body);
+  --tw-prose-links: var(--color-accent);
+  --tw-prose-bold: var(--color-heading);
+  --tw-prose-counters: var(--color-muted);
+  --tw-prose-bullets: var(--color-muted);
+  --tw-prose-hr: var(--color-line);
+  --tw-prose-quotes: var(--color-heading);
+  --tw-prose-quote-borders: var(--color-line);
+  --tw-prose-captions: var(--color-muted);
+  --tw-prose-code: var(--color-heading);
+  --tw-prose-th-borders: var(--color-line);
+  --tw-prose-td-borders: var(--color-line);
 }
 
-[data-accent='blue'] {
-  --color-accent-300: var(--color-blue-300);
-  --color-accent-400: var(--color-blue-400);
-  --color-accent-500: var(--color-blue-500);
-  --color-accent-600: var(--color-blue-600);
+/* Palettes, chosen in Studio ("Svetainės išvaizda"). The roles in @theme above
+   are the default; ids here must match the list in schemaTypes/siteSettings.ts.
+   Source colours come from color-hex.com. Tints and text shades are derived from
+   them where a source colour would be unreadable. */
+/* Cappuccino: #4b3832 #854442 #fff4e6 #3c2f2f #be9b7b */
+:root:has([data-palette='cappuccino']) {
+  --color-page: #fff4e6;
+  --color-surface: #fffaf3;
+  --color-subtle: #f7e6d2;
+  --color-line: #e4cfb8;
+  --color-heading: #3c2f2f;
+  --color-body: #4b3832;
+  --color-muted: #6b534a;
+  --color-accent: #854442;
+  --color-accent-strong: #4b3832;
+  --color-on-accent: #fff4e6;
+  --color-bar: #4b3832;
+  --color-bar-line: #3c2f2f;
+  --color-on-bar: #fff4e6;
+  --color-bar-accent: #e6c6a6;
 }
 
-[data-accent='violet'] {
-  --color-accent-300: var(--color-violet-300);
-  --color-accent-400: var(--color-violet-400);
-  --color-accent-500: var(--color-violet-500);
-  --color-accent-600: var(--color-violet-600);
+/* Beach: #96ceb4 #ffeead #ff6f69 #ffcc5c #88d8b0 */
+:root:has([data-palette='beach']) {
+  --color-page: #fff9dc;
+  --color-surface: #fffdf0;
+  --color-subtle: #ffeead;
+  --color-line: #96ceb4;
+  --color-heading: #1f3d33;
+  --color-body: #2f4f44;
+  --color-muted: #47665a;
+  --color-accent: #b92f2a;
+  --color-accent-strong: #932320;
+  --color-on-accent: #ffffff;
+  --color-bar: #96ceb4;
+  --color-bar-line: #88d8b0;
+  --color-on-bar: #16302a;
+  --color-bar-accent: #7a1714;
+}
+
+/* Beautiful Blues: #011f4b #03396c #005b96 #6497b1 #b3cde0 */
+:root:has([data-palette='blues']) {
+  --color-page: #e6eff6;
+  --color-surface: #f6fafd;
+  --color-subtle: #d3e3ef;
+  --color-line: #b3cde0;
+  --color-heading: #011f4b;
+  --color-body: #03396c;
+  --color-muted: #3b6484;
+  --color-accent: #005b96;
+  --color-accent-strong: #03396c;
+  --color-on-accent: #ffffff;
+  --color-bar: #011f4b;
+  --color-bar-line: #03396c;
+  --color-on-bar: #e6eff6;
+  --color-bar-accent: #b3cde0;
+}
+
+/* Skin Tones: #8d5524 #c68642 #e0ac69 #f1c27d #ffdbac */
+:root:has([data-palette='skin']) {
+  --color-page: #fff1dd;
+  --color-surface: #fffaf2;
+  --color-subtle: #ffe6c7;
+  --color-line: #f1c27d;
+  --color-heading: #4a2c12;
+  --color-body: #5f3a1a;
+  --color-muted: #7a4d24;
+  --color-accent: #8d5524;
+  --color-accent-strong: #6e4118;
+  --color-on-accent: #ffffff;
+  --color-bar: #8d5524;
+  --color-bar-line: #6e4118;
+  --color-on-bar: #fff1dd;
+  --color-bar-accent: #ffdbac;
+}
+
+/* Sage Green: #8f9779 #78866b #738276 #738678 #4d5d53 */
+:root:has([data-palette='sage']) {
+  --color-page: #f1f3ec;
+  --color-surface: #fbfcf8;
+  --color-subtle: #e3e7d9;
+  --color-line: #c9cfb9;
+  --color-heading: #2c362f;
+  --color-body: #3f4b43;
+  --color-muted: #59665c;
+  --color-accent: #4d5d53;
+  --color-accent-strong: #38453d;
+  --color-on-accent: #ffffff;
+  --color-bar: #4d5d53;
+  --color-bar-line: #3f4d45;
+  --color-on-bar: #f1f3ec;
+  --color-bar-accent: #d4dbc4;
+}
+
+/* Soft Pastel: #f6dbdb #f2e3c6 #d3ece1 #c2eec7 #eed2e8 */
+:root:has([data-palette='pastel']) {
+  --color-page: #fbf5e9;
+  --color-surface: #fffdf9;
+  --color-subtle: #f2e3c6;
+  --color-line: #eed2e8;
+  --color-heading: #33303a;
+  --color-body: #4a4652;
+  --color-muted: #68636f;
+  --color-accent: #8a3f7d;
+  --color-accent-strong: #6d2f62;
+  --color-on-accent: #ffffff;
+  --color-bar: #d3ece1;
+  --color-bar-line: #c2eec7;
+  --color-on-bar: #2a3d36;
+  --color-bar-accent: #7a2f6e;
+}
+
+/* Matcha Latte: custom palette, not from color-hex.com */
+:root:has([data-palette='matcha']) {
+  --color-page: #f7f4e4;
+  --color-surface: #fdfbf1;
+  --color-subtle: #ebedd2;
+  --color-line: #d2dbab;
+  --color-heading: #2c381c;
+  --color-body: #3f4c2b;
+  --color-muted: #5a6844;
+  --color-accent: #4f6a22;
+  --color-accent-strong: #3a4f18;
+  --color-on-accent: #fdfbf1;
+  --color-bar: #a9bf6f;
+  --color-bar-line: #9ab35d;
+  --color-on-bar: #1f2a12;
+  --color-bar-accent: #3f2a12;
 }
 
 /* Always reserve space for the vertical scrollbar so page margins don't

@@ -96,7 +96,7 @@ export function InstagramEmbeds({ items }: { items: InstagramEmbedItem[] }) {
       {items.map((item) => (
         <div
           key={item.id}
-          className="relative mx-auto w-full max-w-80 overflow-hidden rounded-xl bg-zinc-100 sm:rounded-2xl dark:bg-zinc-800"
+          className="relative mx-auto w-full max-w-80 overflow-hidden rounded-xl bg-subtle sm:rounded-2xl"
         >
           {/* Instagram's embed UI includes a top profile header; a slightly shorter
               tile reduces vertical cropping. */}

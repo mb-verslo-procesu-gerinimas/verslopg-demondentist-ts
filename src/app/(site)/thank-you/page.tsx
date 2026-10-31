@@ -12,15 +12,15 @@ export default function ThankYou() {
   return (
     <Container className="mt-16 sm:mt-32">
       <div className="mx-auto max-w-2xl text-center">
-        <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
+        <h1 className="text-4xl font-bold tracking-tight text-heading sm:text-5xl">
           Ačiū!
         </h1>
-        <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
+        <p className="mt-6 text-base text-body">
           Sėkmingai užsiprenumeravote naujienlaiškį.
         </p>
         <Link
           href="/"
-          className="mt-10 inline-block text-sm font-medium text-accent-500 transition hover:text-accent-600"
+          className="mt-10 inline-block text-sm font-medium text-accent transition hover:text-accent-strong"
         >
           ← Grįžti į pradžią
         </Link>

@@ -117,11 +117,11 @@ export async function getAboutMeContent(): Promise<AboutMeContent | null> {
   }
 }
 
-const accentQuery = groq`*[_id == "siteSettings"][0].accent`
+const paletteQuery = groq`*[_id == "siteSettings"][0].palette`
 
-export async function getAccent(): Promise<string | undefined> {
+export async function getPalette(): Promise<string | undefined> {
   try {
-    return (await client.fetch(accentQuery)) ?? undefined
+    return (await client.fetch(paletteQuery)) ?? undefined
   } catch {
     return undefined
   }

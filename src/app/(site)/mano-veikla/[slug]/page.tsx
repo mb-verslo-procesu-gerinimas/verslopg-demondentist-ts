@@ -47,18 +47,18 @@ export default async function VeiklaPage({
       <div className="mx-auto max-w-2xl px-4 sm:px-0">
         <Link
           href="/mano-veikla"
-          className="text-sm font-medium text-accent-500 transition hover:text-accent-600"
+          className="text-sm font-medium text-accent transition hover:text-accent-strong"
         >
           ← Visa veikla
         </Link>
         <article className="mt-8">
           <header className="flex flex-col">
-            <h1 className="mt-6 text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
+            <h1 className="mt-6 text-4xl font-bold tracking-tight text-heading sm:text-5xl">
               {item.title}
             </h1>
             <time
               dateTime={item.publishedAt}
-              className="order-first text-base text-zinc-400 dark:text-zinc-500"
+              className="order-first text-base text-muted"
             >
               {formatDate(item.publishedAt)}
             </time>
@@ -84,7 +84,7 @@ export default async function VeiklaPage({
               href={item.link}
               target="_blank"
               rel="noreferrer"
-              className="mt-8 inline-block text-sm font-medium text-accent-500 transition hover:text-accent-600"
+              className="mt-8 inline-block text-sm font-medium text-accent transition hover:text-accent-strong"
             >
               Daugiau informacijos →
             </Link>

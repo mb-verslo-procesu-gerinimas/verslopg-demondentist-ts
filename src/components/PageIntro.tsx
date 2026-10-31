@@ -30,9 +30,9 @@ export async function PageIntro({
         width={96}
         height={96}
         alt=""
-        className="h-12 w-12 flex-none rounded-full object-cover ring-1 ring-zinc-200 dark:ring-zinc-700/40"
+        className="h-12 w-12 flex-none rounded-full object-cover ring-1 ring-line"
       />
-      <p className="w-fit max-w-2xl rounded-2xl bg-white px-4 py-3 text-base text-zinc-600 dark:bg-zinc-900 dark:text-zinc-400 ring-1 ring-zinc-200 dark:ring-zinc-700/40">
+      <p className="w-fit max-w-2xl rounded-2xl bg-surface px-4 py-3 text-base text-body ring-1 ring-line">
         {intros?.[field] ?? defaultIntros[field]}
       </p>
     </div>

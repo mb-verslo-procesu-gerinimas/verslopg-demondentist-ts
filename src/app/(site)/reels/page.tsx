@@ -26,7 +26,7 @@ export default async function Reels() {
         <PageIntro field="reelsIntro" />
         <div className="mt-16 grid grid-cols-1 gap-5 sm:mt-20 sm:gap-8 min-[480px]:grid-cols-2 lg:grid-cols-3">
           {instagramItems.length === 0 ? (
-            <p className="text-base text-zinc-600 dark:text-zinc-400">
+            <p className="text-base text-body">
               Reelų dar nėra. Užsukite vėliau!
             </p>
           ) : (
