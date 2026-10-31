@@ -78,7 +78,7 @@ export default async function Contact() {
         </div>
         <div className="order-1 lg:order-2 lg:pl-20">
           <div className="mx-auto max-w-xs px-2.5 lg:mx-0 lg:max-w-none">
-            <div className="relative aspect-square rotate-3 overflow-hidden rounded-2xl bg-zinc-100 ring-1 ring-zinc-200 dark:bg-zinc-800 dark:ring-zinc-700/40">
+            <div className="relative aspect-square rotate-0 overflow-hidden rounded-2xl bg-zinc-100 ring-1 ring-zinc-200 dark:bg-zinc-800 dark:ring-zinc-700/40">
               <Parallax speed={0.2} className="absolute inset-x-0 -inset-y-12">
                 <Image
                   src={
