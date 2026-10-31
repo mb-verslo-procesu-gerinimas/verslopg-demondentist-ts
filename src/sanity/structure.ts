@@ -1,7 +1,12 @@
 import { type StructureResolver } from 'sanity/structure'
 
 // Document types that exist exactly once; their _id equals their type name.
-export const singletonTypes = ['aboutMe', 'contactPage', 'siteSettings']
+export const singletonTypes = [
+  'aboutMe',
+  'contactPage',
+  'pageIntros',
+  'siteSettings',
+]
 
 // Plural sidebar labels; schema titles stay singular for "New ..." buttons.
 const listTitles: Record<string, string> = {

@@ -110,6 +110,25 @@ export async function getAccent(): Promise<string | undefined> {
   }
 }
 
+export type PageIntros = {
+  avatar?: Image
+  veiklaIntro?: string
+  articlesIntro?: string
+  reelsIntro?: string
+}
+
+const pageIntrosQuery = groq`*[_id == "pageIntros"][0]{
+  avatar, veiklaIntro, articlesIntro, reelsIntro
+}`
+
+export async function getPageIntros(): Promise<PageIntros | null> {
+  try {
+    return await client.fetch(pageIntrosQuery)
+  } catch {
+    return null
+  }
+}
+
 export type HomePage = {
   title?: string
   body?: PortableTextBlock[]

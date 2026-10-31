@@ -4,8 +4,8 @@ import Link from 'next/link'
 
 import { Card } from '@/components/Card'
 import { Container } from '@/components/Container'
+import { PageIntro } from '@/components/PageIntro'
 import { formatDate } from '@/lib/formatDate'
-import avatarImage from '@/images/raminta_avatar.jpg'
 import { urlFor } from '@/sanity/lib/image'
 import { getAllPosts } from '@/sanity/lib/queries'
 
@@ -36,17 +36,7 @@ export default async function ArticlesIndex() {
   return (
     <Container className="mt-16 sm:mt-32">
       <div className="px-4 sm:px-0">
-        <div className="flex items-center gap-4">
-          <Image
-            src={avatarImage}
-            alt=""
-            className="h-12 w-12 flex-none rounded-full object-cover ring-1 ring-zinc-200 dark:ring-zinc-700/40"
-          />
-          <p className="w-fit max-w-2xl rounded-2xl bg-white px-4 py-3 text-base text-zinc-600 dark:bg-zinc-900 dark:text-zinc-400 ring-1 ring-zinc-200 dark:ring-zinc-700/40">
-            Čia rasite mano straipsnius, įžvalgas ir patarimus apie dantų priežiūrą,
-            profilaktiką ir vaikų odontologiją.
-          </p>
-        </div>
+        <PageIntro field="articlesIntro" />
         <div className="mt-16 sm:mt-20">
           {posts.length === 0 ? (
             <p className="text-base text-zinc-600 dark:text-zinc-400">
