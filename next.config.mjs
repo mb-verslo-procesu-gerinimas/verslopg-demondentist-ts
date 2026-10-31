@@ -9,6 +9,9 @@ const nextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [{ source: '/', destination: '/apie-mane', permanent: false }]
+  },
 }
 
 export default nextConfig
