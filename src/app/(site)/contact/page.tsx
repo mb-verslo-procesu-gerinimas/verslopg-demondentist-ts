@@ -8,6 +8,8 @@ import { Newsletter } from '@/components/Newsletter'
 import { Parallax } from '@/components/Parallax'
 import portraitImage from '@/images/raminta_portrait.jpg'
 import { FacebookIcon, InstagramIcon, MailIcon } from '@/components/SocialIcons'
+import { urlFor } from '@/sanity/lib/image'
+import { getContactPage } from '@/sanity/lib/queries'
 
 function SocialLink({
   className,
@@ -41,34 +43,33 @@ export const metadata: Metadata = {
     'Susisiekite su Demone Dantiste socialiniuose tinkluose arba el. paštu.',
 }
 
-export default function Contact() {
+export default async function Contact() {
+  const contact = await getContactPage()
+
   return (
     <Container className="mt-16 sm:mt-32">
       <div className="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:gap-y-12">
         <div className="order-2 px-4 sm:px-0 lg:order-1">
           <h1 className="text-center text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl lg:text-left dark:text-zinc-100">
-            Kontaktai
+            {contact.title}
           </h1>
           <ul role="list" className="mt-8 sm:mt-12">
-            <SocialLink
-              href="https://www.instagram.com/demone.dantiste"
-              icon={InstagramIcon}
-            >
-              demone.dantiste
+            <SocialLink href={contact.instagramUrl} icon={InstagramIcon}>
+              {contact.instagramLabel}
             </SocialLink>
             <SocialLink
-              href="https://www.facebook.com/demonedantiste/"
+              href={contact.facebookUrl}
               icon={FacebookIcon}
               className="mt-4"
             >
-              demonedantiste
+              {contact.facebookLabel}
             </SocialLink>
             <SocialLink
-              href="mailto:demonedantiste@gmail.com"
+              href={`mailto:${contact.email}`}
               icon={MailIcon}
               className="mt-4"
             >
-              demonedantiste@gmail.com
+              {contact.email}
             </SocialLink>
           </ul>
           <div className="mt-10">
@@ -80,7 +81,11 @@ export default function Contact() {
             <div className="relative aspect-square rotate-3 overflow-hidden rounded-2xl bg-zinc-100 ring-1 ring-zinc-200 dark:bg-zinc-800 dark:ring-zinc-700/40">
               <Parallax speed={0.2} className="absolute inset-x-0 -inset-y-12">
                 <Image
-                  src={portraitImage}
+                  src={
+                    contact.image
+                      ? urlFor(contact.image).width(1024).height(1200).url()
+                      : portraitImage
+                  }
                   alt="Demonė Dantistė"
                   sizes="(min-width: 1024px) 32rem, 20rem"
                   fill

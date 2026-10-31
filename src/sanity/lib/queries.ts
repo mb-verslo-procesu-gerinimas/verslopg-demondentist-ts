@@ -67,16 +67,21 @@ export type Veikla = {
 }
 
 export type AboutMeContent = {
-  _id: string
+  title?: string
+  role?: string
+  license?: string
   body?: PortableTextBlock[]
+  image?: Image
 }
 
 const veiklaQuery = groq`*[_type == "veikla"] | order(order asc, _createdAt asc){
   _id, title, description, icon, link, order
 }`
 
+// The pre-singleton document has a random _id, so match on type: it keeps
+// showing until the "aboutMe" singleton is published, which is then the newest.
 const aboutMeContentQuery = groq`*[_type == "aboutMe"] | order(_updatedAt desc)[0]{
-  _id, body
+  title, role, license, body, image
 }`
 
 export async function getAllVeikla(): Promise<Veikla[]> {
@@ -92,5 +97,58 @@ export async function getAboutMeContent(): Promise<AboutMeContent | null> {
     return await client.fetch(aboutMeContentQuery)
   } catch {
     return null
+  }
+}
+
+export type HomePage = {
+  title?: string
+  body?: PortableTextBlock[]
+  image?: Image
+}
+
+const homePageQuery = groq`*[_id == "homePage"][0]{
+  title, body, image
+}`
+
+export async function getHomePage(): Promise<HomePage | null> {
+  try {
+    return await client.fetch(homePageQuery)
+  } catch {
+    return null
+  }
+}
+
+export type ContactPage = {
+  title: string
+  instagramUrl: string
+  instagramLabel: string
+  facebookUrl: string
+  facebookLabel: string
+  email: string
+  image?: Image
+}
+
+const contactPageQuery = groq`*[_id == "contactPage"][0]{
+  title, instagramUrl, instagramLabel, facebookUrl, facebookLabel, email, image
+}`
+
+export async function getContactPage(): Promise<ContactPage> {
+  let page: Partial<ContactPage> | null = null
+  try {
+    page = await client.fetch(contactPageQuery)
+  } catch {
+    // Fall through to the defaults below; the footer renders on every page.
+  }
+
+  return {
+    title: page?.title ?? 'Kontaktai',
+    instagramUrl:
+      page?.instagramUrl ?? 'https://www.instagram.com/demone.dantiste',
+    instagramLabel: page?.instagramLabel ?? 'demone.dantiste',
+    facebookUrl:
+      page?.facebookUrl ?? 'https://www.facebook.com/demonedantiste/',
+    facebookLabel: page?.facebookLabel ?? 'demonedantiste',
+    email: page?.email ?? 'demonedantiste@gmail.com',
+    image: page?.image ?? undefined,
   }
 }

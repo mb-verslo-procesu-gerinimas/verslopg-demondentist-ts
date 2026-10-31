@@ -2,6 +2,8 @@ import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
 import { Providers } from '@/app/providers'
 
+export const revalidate = 60
+
 export default function SiteLayout({
   children,
 }: {

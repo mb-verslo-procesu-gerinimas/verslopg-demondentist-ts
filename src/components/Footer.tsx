@@ -2,8 +2,11 @@ import Link from 'next/link'
 
 import { Container } from '@/components/Container'
 import { FacebookIcon, InstagramIcon, MailIcon } from '@/components/SocialIcons'
+import { getContactPage } from '@/sanity/lib/queries'
 
-export function Footer() {
+export async function Footer() {
+  const contact = await getContactPage()
+
   return (
     <footer className="border-t border-zinc-200 bg-white dark:border-zinc-700/40 dark:bg-zinc-900">
       <Container>
@@ -13,20 +16,19 @@ export function Footer() {
             saugomos.
           </p>
           <div className="flex gap-4">
-            <Link href="mailto:demonedantiste@gmail.com" aria-label="El. paštas">
+            <Link href={`mailto:${contact.email}`} aria-label="El. paštas">
               <MailIcon className="h-6 w-6 fill-zinc-500 transition hover:fill-teal-500" />
             </Link>
             <Link
-              href="https://www.instagram.com/demone.dantiste"
+              href={contact.instagramUrl}
               target="_blank"
               rel="noreferrer"
               aria-label="Instagram"
             >
               <InstagramIcon className="h-6 w-6 fill-zinc-500 transition hover:fill-teal-500" />
             </Link>
-            {/* TODO: replace with the real Facebook page URL */}
             <Link
-              href="https://www.facebook.com/demonedantiste"
+              href={contact.facebookUrl}
               target="_blank"
               rel="noreferrer"
               aria-label="Facebook"
