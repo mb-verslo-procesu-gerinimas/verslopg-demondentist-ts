@@ -28,9 +28,9 @@ function SocialLink({
         href={href}
         target="_blank"
         rel="noreferrer"
-        className="group flex text-sm font-medium text-zinc-800 transition hover:text-teal-500 dark:text-zinc-200"
+        className="group flex text-sm font-medium text-zinc-800 transition hover:text-accent-500 dark:text-zinc-200"
       >
-        <Icon className="h-6 w-6 flex-none fill-zinc-500 transition group-hover:fill-teal-500" />
+        <Icon className="h-6 w-6 flex-none fill-zinc-500 transition group-hover:fill-accent-500" />
         <span className="ml-4">{children}</span>
       </Link>
     </li>

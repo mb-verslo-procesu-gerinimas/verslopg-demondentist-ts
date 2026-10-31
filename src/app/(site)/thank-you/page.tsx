@@ -20,7 +20,7 @@ export default function ThankYou() {
         </p>
         <Link
           href="/"
-          className="mt-10 inline-block text-sm font-medium text-teal-500 transition hover:text-teal-600"
+          className="mt-10 inline-block text-sm font-medium text-accent-500 transition hover:text-accent-600"
         >
           ← Grįžti į pradžią
         </Link>

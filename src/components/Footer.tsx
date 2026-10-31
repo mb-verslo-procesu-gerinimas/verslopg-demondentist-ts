@@ -17,7 +17,7 @@ export async function Footer() {
           </p>
           <div className="flex gap-4">
             <Link href={`mailto:${contact.email}`} aria-label="El. paštas">
-              <MailIcon className="h-6 w-6 fill-zinc-500 transition hover:fill-teal-500" />
+              <MailIcon className="h-6 w-6 fill-zinc-500 transition hover:fill-accent-500" />
             </Link>
             <Link
               href={contact.instagramUrl}
@@ -25,7 +25,7 @@ export async function Footer() {
               rel="noreferrer"
               aria-label="Instagram"
             >
-              <InstagramIcon className="h-6 w-6 fill-zinc-500 transition hover:fill-teal-500" />
+              <InstagramIcon className="h-6 w-6 fill-zinc-500 transition hover:fill-accent-500" />
             </Link>
             <Link
               href={contact.facebookUrl}
@@ -33,7 +33,7 @@ export async function Footer() {
               rel="noreferrer"
               aria-label="Facebook"
             >
-              <FacebookIcon className="h-6 w-6 fill-zinc-500 transition hover:fill-teal-500" />
+              <FacebookIcon className="h-6 w-6 fill-zinc-500 transition hover:fill-accent-500" />
             </Link>
           </div>
         </div>

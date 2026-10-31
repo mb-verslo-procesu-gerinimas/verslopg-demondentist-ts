@@ -1,7 +1,7 @@
 import { type StructureResolver } from 'sanity/structure'
 
 // Document types that exist exactly once; their _id equals their type name.
-export const singletonTypes = ['aboutMe', 'contactPage']
+export const singletonTypes = ['aboutMe', 'contactPage', 'siteSettings']
 
 export const structure: StructureResolver = (S) =>
   S.list()

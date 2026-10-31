@@ -33,6 +33,34 @@
   --text-8xl--line-height: 1;
   --text-9xl: 8rem;
   --text-9xl--line-height: 1;
+
+  --color-accent-300: var(--color-teal-300);
+  --color-accent-400: var(--color-teal-400);
+  --color-accent-500: var(--color-teal-500);
+  --color-accent-600: var(--color-teal-600);
+}
+
+/* Palette presets, chosen in Studio ("Svetainės išvaizda"). Teal is the default
+   above; the values here must match the list in schemaTypes/siteSettings.ts. */
+[data-accent='rose'] {
+  --color-accent-300: var(--color-rose-300);
+  --color-accent-400: var(--color-rose-400);
+  --color-accent-500: var(--color-rose-500);
+  --color-accent-600: var(--color-rose-600);
+}
+
+[data-accent='blue'] {
+  --color-accent-300: var(--color-blue-300);
+  --color-accent-400: var(--color-blue-400);
+  --color-accent-500: var(--color-blue-500);
+  --color-accent-600: var(--color-blue-600);
+}
+
+[data-accent='violet'] {
+  --color-accent-300: var(--color-violet-300);
+  --color-accent-400: var(--color-violet-400);
+  --color-accent-500: var(--color-violet-500);
+  --color-accent-600: var(--color-violet-600);
 }
 
 /* Always reserve space for the vertical scrollbar so page margins don't

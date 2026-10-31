@@ -66,7 +66,7 @@ export default async function ManoVeikla() {
                       href={item.link}
                       target="_blank"
                       rel="noreferrer"
-                      className="relative z-10 mt-4 text-sm font-medium text-teal-500 transition hover:text-teal-600"
+                      className="relative z-10 mt-4 text-sm font-medium text-accent-500 transition hover:text-accent-600"
                     >
                       Skaityti daugiau
                     </Link>

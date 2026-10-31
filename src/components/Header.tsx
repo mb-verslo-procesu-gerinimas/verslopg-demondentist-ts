@@ -44,7 +44,7 @@ export function Header() {
           <Link
             href="/"
             aria-label="Pradžia"
-            className="flex text-zinc-600 transition hover:text-teal-500 dark:text-zinc-200"
+            className="flex text-zinc-600 transition hover:text-accent-500 dark:text-zinc-200"
           >
             <HomeIcon className="h-6 w-6 stroke-current" />
           </Link>
@@ -55,8 +55,8 @@ export function Header() {
                   <Link
                     href={item.href}
                     className={clsx(
-                      'transition hover:text-teal-500',
-                      pathname === item.href && 'text-teal-500',
+                      'transition hover:text-accent-500',
+                      pathname === item.href && 'text-accent-500',
                     )}
                   >
                     {item.name}
@@ -73,7 +73,7 @@ export function Header() {
               aria-controls="mobile-navigation"
               aria-expanded={isMenuOpen}
               onClick={() => setIsMenuOpen((open) => !open)}
-              className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-zinc-200 text-zinc-600 transition hover:border-zinc-300 hover:text-teal-500 md:hidden dark:border-zinc-700/40 dark:text-zinc-200 dark:hover:border-zinc-600"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-zinc-200 text-zinc-600 transition hover:border-zinc-300 hover:text-accent-500 md:hidden dark:border-zinc-700/40 dark:text-zinc-200 dark:hover:border-zinc-600"
             >
               <svg
                 viewBox="0 0 24 24"
@@ -109,8 +109,8 @@ export function Header() {
                   <Link
                     href={item.href}
                     className={clsx(
-                      'block rounded-lg px-3 py-2 text-sm font-medium text-zinc-700 transition hover:bg-zinc-100 hover:text-teal-500 dark:text-zinc-200 dark:hover:bg-zinc-800/70',
-                      pathname === item.href && 'bg-zinc-100 text-teal-500 dark:bg-zinc-800/70',
+                      'block rounded-lg px-3 py-2 text-sm font-medium text-zinc-700 transition hover:bg-zinc-100 hover:text-accent-500 dark:text-zinc-200 dark:hover:bg-zinc-800/70',
+                      pathname === item.href && 'bg-zinc-100 text-accent-500 dark:bg-zinc-800/70',
                     )}
                   >
                     {item.name}

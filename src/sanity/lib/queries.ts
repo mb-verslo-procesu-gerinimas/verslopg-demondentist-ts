@@ -100,6 +100,16 @@ export async function getAboutMeContent(): Promise<AboutMeContent | null> {
   }
 }
 
+const accentQuery = groq`*[_id == "siteSettings"][0].accent`
+
+export async function getAccent(): Promise<string | undefined> {
+  try {
+    return (await client.fetch(accentQuery)) ?? undefined
+  } catch {
+    return undefined
+  }
+}
+
 export type HomePage = {
   title?: string
   body?: PortableTextBlock[]

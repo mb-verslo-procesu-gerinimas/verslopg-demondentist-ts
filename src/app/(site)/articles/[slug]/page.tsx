@@ -61,7 +61,7 @@ export default async function ArticlePage({
       <div className="mx-auto max-w-2xl px-4 sm:px-0">
         <Link
           href="/articles"
-          className="text-sm font-medium text-teal-500 transition hover:text-teal-600"
+          className="text-sm font-medium text-accent-500 transition hover:text-accent-600"
         >
           ← Visi straipsniai
         </Link>

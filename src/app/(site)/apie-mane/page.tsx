@@ -53,7 +53,7 @@ export default async function AboutMe() {
           <h1 className="text-center text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl lg:text-left dark:text-zinc-100">
             {aboutMeContent?.title ?? 'Apie mane'}
           </h1>
-          <p className="mt-4 text-center text-base font-medium text-teal-500 lg:text-left">
+          <p className="mt-4 text-center text-base font-medium text-accent-500 lg:text-left">
             {aboutMeContent?.role ?? 'Bendrosios praktikos gydytoja odontologė'}
           </p>
           <p className="text-center text-sm text-zinc-500 lg:text-left dark:text-zinc-400">

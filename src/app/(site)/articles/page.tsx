@@ -89,7 +89,7 @@ export default async function ArticlesIndex() {
                         {post.excerpt && (
                           <Card.Description>{post.excerpt}</Card.Description>
                         )}
-                        <p className="mt-4 text-sm font-medium text-teal-500 transition group-hover:text-teal-600">
+                        <p className="mt-4 text-sm font-medium text-accent-500 transition group-hover:text-accent-600">
                           Skaityti straipsnį
                         </p>
                       </Card>
